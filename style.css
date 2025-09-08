@@ -1,0 +1,86 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 40px;
+}
+
+/* Part 1: CSS Only Animations */
+.fancy-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.fancy-btn:hover {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+/* Box for JS Triggered Animation */
+.box {
+  width: 100px;
+  height: 100px;
+  background: coral;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+/* Keyframe Animation */
+@keyframes slideAndFade {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-50px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate {
+  animation: slideAndFade 1s ease-in-out;
+}
+
+/* Card Flip */
+.card {
+  perspective: 1000px;
+  width: 120px;
+  height: 160px;
+  margin: 20px auto;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.card-front {
+  background: lightseagreen;
+  color: white;
+}
+
+.card-back {
+  background: tomato;
+  color: white;
+  transform: rotateY(180deg);
+}
